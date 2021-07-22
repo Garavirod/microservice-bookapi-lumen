@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Book;
 
 use App\Http\Controllers\Controller;
+use App\Traits\ApiResponser;
 use Illuminate\Http\Client\Request;
 
 class BookController extends Controller
 {
     // Standar responses
-    //use ApiResponser;
+    use ApiResponser;
 
     public function __construct()
     {
