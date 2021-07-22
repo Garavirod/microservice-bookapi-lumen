@@ -16,3 +16,19 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+// Versionamiento de servicos
+$router->group(['prefix'=>'/v1'],function () use ($router){
+    $router->group(['prefix'=>'/users'],function () use ($router){
+        /* POST */
+        $router->post('/register', 'Book\BookController@storeBook');
+        /* GET */
+        $router->get('/list', 'Book\BookController@booksList');
+        $router->get('/books/{book}', 'Book\BookController@getBook');
+        /* PUT */
+        $router->put('/books/{book}/','Book\BookController@updateBook');
+        $router->patch('/books/{book}/','Book\BookController@updateBook');
+        /* DELETE */
+        $router->delete('/books/{book}/','Book\BookController@deleteBook');
+    });
+});
