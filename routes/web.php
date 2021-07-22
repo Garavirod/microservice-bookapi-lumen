@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 
 // Versionamiento de servicos
 $router->group(['prefix'=>'/v1'],function () use ($router){
-    $router->group(['prefix'=>'/users'],function () use ($router){
+    $router->group(['prefix'=>'/books'],function () use ($router){
         /* POST */
         $router->post('/register', 'Book\BookController@storeBook');
         /* GET */
